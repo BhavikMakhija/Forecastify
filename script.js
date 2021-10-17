@@ -4,7 +4,7 @@ var weather = {
     apiKey: "f6902b61290e2388304ea9ace5e478ae", //optain an api key from openweathermap.org (a weather api)
     getWeather: function(city) {
         fetch(
-                "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=" + this.apiKey
+                "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=" + this.apiKey //fetching weather in city/country using api
             )
             .then((response) => {
                 return response.json();
@@ -49,7 +49,8 @@ weather.getWeather("Toronto");
 
 //update the sports 
 function updateSports(x) {
-    if (x < 0) {
+    if (x < 0) { //indicating if condition
+        //listing sports relevant to weather in region (cold)
         document.querySelector(".sport1").innerText = "Ice Hockey";
         document.querySelector(".sport2").innerText = "Skiing";
         document.querySelector(".sport3").innerText = "Curling";
@@ -57,6 +58,7 @@ function updateSports(x) {
         document.querySelector(".SportIcon2").src = "https://alpineairadventures.com/wp-content/uploads/2014/02/1people-768x1024-1-200x200.jpg";
         document.querySelector(".SportIcon3").src = "https://cdn-japantimes.com/wp-content/uploads/2020/05/np_file_11599-200x200.jpeg";
     } else {
+        // listing sports relevant to weather in region (warm)
         document.querySelector(".sport1").innerText = "Soccer";
         document.querySelector(".sport2").innerText = "Swimming";
         document.querySelector(".sport3").innerText = "Tennis";
